@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saphira Tour & Travel - Bandung, Lembang & Ciwidey Specialist</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0284c7', // Sky blue
+                        primaryHover: '#0369a1',
+                        secondary: '#f97316', // Vibrant orange
+                        accent: '#14b8a6',
+                        dark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Floating WA Animation */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        .wa-float-btn {
+            animation: pulse-ring 2s infinite;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0284c7;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-primary selection:text-white">
+
+    <!-- WhatsApp Phone Number Variable Configuration -->
+    <script>
+        const WA_NUMBER = "6289530401125"; // WhatsApp Admin Saphira Tour
+    </script>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Brand Name -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <img id="brand-logo" 
+                         src="1.png" 
+                         alt="Saphira Tour Logo" 
+                         class="w-10 h-10 object-contain rounded-xl shadow-md border border-slate-100 transform group-hover:scale-105 transition-transform"
+                         onerror="this.onerror=null; this.src='https://placehold.co/100x100/0284c7/ffffff?text=ST';">
+                    
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-none">SAPHIRA</span>
+                        <span class="text-xs font-semibold text-primary uppercase tracking-widest block">Bandung Tour Specialist</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-6 font-medium text-slate-600 text-sm lg:text-base">
+                    <a href="#home" class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">Beranda</a>
+                    <a href="#destinations" class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">Paket Wisata</a>
+                    <a href="#why-us" class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">Keunggulan</a>
+                    <a href="#documentation" class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">Dokumentasi</a>
+                    <a href="#testimonials" class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">Testimoni</a>
+                    <a href="#booking" class="hover:text-primary transition-colors py-2 border-b-2 border-transparent hover:border-primary">Reservasi</a>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="https://wa.me/6289530401125?text=Halo%20Saphira%20Tour,%20saya%20ingin%20bertanya%20mengenai%20paket%20wisata%20Bandung." 
+                       target="_blank" 
+                       class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-4 py-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 text-sm transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>Chat Admin</span>
+                    </a>
+                </div>
+
+                <!-- Hamburger Mobile Toggle Button -->
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="mobile-menu-btn" class="text-slate-700 hover:text-primary p-2 focus:outline-none" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 shadow-xl transition-all duration-300">
+            <div class="px-4 pt-2 pb-6 space-y-3 font-medium">
+                <a href="#home" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-primary">Beranda</a>
+                <a href="#destinations" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-primary">Paket Wisata</a>
+                <a href="#why-us" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-primary">Keunggulan</a>
+                <a href="#documentation" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-primary">Dokumentasi</a>
+                <a href="#testimonials" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-primary">Testimoni</a>
+                <a href="#booking" class="mobile-link block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-primary">Reservasi Form</a>
+                <div class="pt-2">
+                    <a href="https://wa.me/6289530401125?text=Halo%20Saphira%20Tour,%20saya%20ingin%20konsultasi%20wisata%20Bandung." 
+                       target="_blank" 
+                       class="w-full flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl shadow-md">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Hubungi via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-28 lg:pt-36 pb-20 lg:pb-32 overflow-hidden bg-slate-900 text-white min-h-[90vh] flex items-center">
+        <!-- Background Overlay Image HD -->
+        <div class="absolute inset-0 z-0">
+            <img src="1.png" 
+                 alt="Background Saphira Tour Bandung" 
+                 class="w-full h-full object-cover object-center scale-105 transform animate-pulse duration-[10000ms]">
+        </div>
+        
+        <!-- Multi-layer Gradient Overlay -->
+        <div class="absolute inset-0 z-0 bg-gradient-to-r from-slate-950/90 via-slate-900/75 to-slate-900/40"></div>
+        <div class="absolute inset-0 z-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-3xl text-center md:text-left">
+                <span class="inline-block bg-primary/30 border border-primary/50 text-cyan-300 font-semibold text-xs md:text-sm px-4 py-1.5 rounded-full mb-4 backdrop-blur-md shadow-lg">
+                    ✨ Spesialis Wisata Bandung, Lembang & Ciwidey
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-4 drop-shadow-md">
+                    <span>Jelajahi Keindahan Alam & Pesona Bandung Bersama</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-primary">Saphira Tour</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-200 mb-4 leading-relaxed font-normal drop-shadow">
+                    Nikmati liburan sejuk dan berkesan di Lembang, Ciwidey, dan Kota Bandung. Kami melayani piknik keluarga, gathering perusahaan, hingga custom private tour dengan pelayanan VIP terbaik.
+                </p>
+                <p class="text-md sm:text-lg text-cyan-300 font-semibold mb-8 drop-shadow">
+                    <i class="fa-solid fa-certificate mr-2"></i>Tour guide bersertifikasi BNSP.
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-start gap-4 mb-12">
+                    <a href="#booking" class="w-full sm:w-auto text-center bg-secondary hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-orange-500/25 transition-all duration-200 transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-paper-plane mr-2"></i><span>Pesan Liburan Sekarang</span>
+                    </a>
+                    <a href="https://wa.me/6289530401125?text=Halo%20Saphira%20Tour,%20saya%20ingin%20tanya%20promo%20paket%20wisata%20Bandung." 
+                       target="_blank" 
+                       class="w-full sm:w-auto text-center bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-emerald-500/25 transition-all duration-200 transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i><span>Tanya Admin via WA</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive Search / Filter Bar -->
+            <div class="bg-white/95 backdrop-blur-md text-slate-800 p-4 sm:p-6 rounded-2xl shadow-2xl border border-white/20 max-w-5xl">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Search Input -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Cari Destinasi</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-3.5 text-slate-400"></i>
+                            <input type="text" id="search-input" placeholder="Lembang, Ciwidey, Open Trip..." class="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+                        </div>
+                    </div>
+                    
+                    <!-- Category Filter -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Kategori Tour</label>
+                        <select id="category-filter" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm text-slate-700">
+                            <option value="all">Semua Kategori</option>
+                            <option value="lembang">Lembang</option>
+                            <option value="ciwidey">Ciwidey</option>
+                            <option value="opentrip">Open Trip</option>
+                            <option value="privatetrip">Private Trip</option>
+                        </select>
+                    </div>
+
+                    <!-- Duration Filter -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Durasi Hari</label>
+                        <select id="duration-filter" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm text-slate-700">
+                            <option value="all">Semua Durasi</option>
+                            <option value="short">1 Hari (12 Jam)</option>
+                            <option value="medium">2 Hari 1 Malam</option>
+                            <option value="long">3 Hari 2 Malam</option>
+                        </select>
+                    </div>
+
+                    <!-- Search Button -->
+                    <div class="flex items-end">
+                        <button id="search-btn" class="w-full bg-primary hover:bg-primaryHover text-white font-bold py-2.5 px-4 rounded-lg shadow transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-filter"></i>
+                            <span>Terapkan Filter</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="bg-white border-y border-slate-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-primary mb-1">500+</p>
+                    <p class="text-sm font-medium text-slate-600">Wisatawan Puas</p>
+                </div>
+                <div>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-primary mb-1">30+</p>
+                    <p class="text-sm font-medium text-slate-600">Spot Wisata Bandung</p>
+                </div>
+                <div>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-primary mb-1">10+ Thn</p>
+                    <p class="text-sm font-medium text-slate-600">Pengalaman Operasional</p>
+                </div>
+                <div>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-primary mb-1">4.9/5.0</p>
+                    <p class="text-sm font-medium text-slate-600">Rating Kepuasan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POPULAR DESTINATIONS / PACKAGES -->
+    <section id="destinations" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-primary font-bold uppercase tracking-wider text-sm">Paket Wisata Favorit</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Pilihan Paket Wisata Bandung</h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">Nikmati sensasi udara sejuk Lembang dan keindahan alam Ciwidey dalam pilihan Open Trip & Private Trip.</p>
+            </div>
+
+            <!-- Grid Container for Tour Cards -->
+            <div id="tour-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Tour cards dynamically rendered here -->
+            </div>
+
+            <!-- No Results Message -->
+            <div id="no-results" class="hidden text-center py-12 bg-white rounded-2xl shadow-sm">
+                <i class="fa-solid fa-compass-slash text-5xl text-slate-300 mb-4"></i>
+                <h3 class="text-xl font-bold text-slate-700">Tidak ada paket wisata yang cocok</h3>
+                <p class="text-slate-500 mt-1">Coba sesuaikan kata kunci atau filter kategori Anda.</p>
+                <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-primaryHover text-sm">Reset Filter</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US / FEATURES SECTION -->
+    <section id="why-us" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-primary font-bold uppercase tracking-wider text-sm">Mengapa Saphira Tour</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Komitmen Layanan Terbaik Kami</h2>
+                <p class="text-slate-600 mt-4">Kami menjamin setiap momen perjalanan liburan Anda di Bandung terasa istimewa, aman, dan berkesan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Harga Transparan & Terbaik</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Tanpa biaya tersembunyi. Dapatkan fasilitas kendaraan prima dan tiket objek wisata terlengkap.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-secondary/10 text-secondary rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Driver & Guide Pituin Sunda</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Dipandu oleh driver & tour guide lokal bersertifikasi BNSP yang ramah dan berpengalaman.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-emerald-500/10 text-emerald-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Itinerary Fleksibel</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Dapat disesuaikan untuk grup keluarga, rombongan sekolah, outing kantor, hingga pasangan.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-purple-500/10 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Layanan CS 24 Jam</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Tim kami siap membantu konsultasi rute wisata dan tempat kuliner hits Bandung kapan saja via WA.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCUMENTATION / GALLERY SECTION -->
+    <section id="documentation" class="py-20 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-primary font-bold uppercase tracking-wider text-sm">Galeri Kegiatan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Dokumentasi Perjalanan Wisata</h2>
+                <p class="text-slate-600 mt-4">Momen seru dan kebersamaan para wisatawan bersama Saphira Tour & Travel di Lembang dan Ciwidey.</p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="relative group overflow-hidden rounded-2xl shadow-md bg-white h-72 border border-slate-200">
+                    <img src="12.jpg" alt="Dokumentasi Lembang Open Trip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=800&q=80';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs font-semibold text-cyan-300 uppercase tracking-wide">Lembang</span>
+                        <h4 class="text-lg font-bold">Keseruan Open Trip Tangkuban Perahu</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="relative group overflow-hidden rounded-2xl shadow-md bg-white h-72 border border-slate-200">
+                    <img src="11.jpg" alt="Dokumentasi Ciwidey Private Trip" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584810359583-96fc3448beaa?auto=format&fit=crop&w=800&q=80';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs font-semibold text-cyan-300 uppercase tracking-wide">Ciwidey</span>
+                        <h4 class="text-lg font-bold">Keindahan Alam Kawah Putih Eksotis</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="relative group overflow-hidden rounded-2xl shadow-md bg-white h-72 border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Dokumentasi Family Gathering" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs font-semibold text-cyan-300 uppercase tracking-wide">Bandung City</span>
+                        <h4 class="text-lg font-bold">Wisata Keluarga & Edukasi Budaya</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="relative group overflow-hidden rounded-2xl shadow-md bg-white h-72 border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" alt="Dokumentasi Outbound" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs font-semibold text-cyan-300 uppercase tracking-wide">Lembang</span>
+                        <h4 class="text-lg font-bold">Gathering & Team Building Cikole</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="relative group overflow-hidden rounded-2xl shadow-md bg-white h-72 border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Dokumentasi Glamping Ciwidey" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs font-semibold text-cyan-300 uppercase tracking-wide">Ciwidey</span>
+                        <h4 class="text-lg font-bold">Glamping Lakeside & Kapal Pinisi</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="relative group overflow-hidden rounded-2xl shadow-md bg-white h-72 border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80" alt="Dokumentasi Tour Guide" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs font-semibold text-cyan-300 uppercase tracking-wide">Professional Guide</span>
+                        <h4 class="text-lg font-bold">Pelayanan Ramah & Bersertifikasi BNSP</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-primary font-bold uppercase tracking-wider text-sm">Kata Mereka</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Testimoni Wisatawan Saphira</h2>
+                <p class="text-slate-600 mt-4">Pengalaman asli dari wisatawan yang liburan ke Bandung bersama kami.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm sm:text-base mb-6">
+                            "Ikut Lembang Open Trip Saphira Tour seru banget! Teman-teman baru asik, tour guide-nya ramah & bersertifikat, destinasi seperti Floating Market dan Orchid Forest bikin puas."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-slate-200 pt-4">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Sarah" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Sarah Rahmawati</h4>
+                            <p class="text-xs text-slate-500">Lembang Open Trip</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm sm:text-base mb-6">
+                            "Private Trip Ciwidey untuk rombongan keluarga kami sangat memuaskan. Mobil AC dingin, jam fleksibel, dan driver tahu jalan pintas terbebas macet."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-slate-200 pt-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Budi" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Budi Santoso</h4>
+                            <p class="text-xs text-slate-500">Ciwidey Private Trip</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm sm:text-base mb-6">
+                            "Lembang Private Trip untuk honeymoon berdua luar biasa romantis! Pemandangan indah, dokumentasi foto dibantu tour guide. Hatur nuhun Saphira Tour!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 border-t border-slate-200 pt-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Dewi" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Dewi & Rizky</h4>
+                            <p class="text-xs text-slate-500">Lembang Private Trip</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING / CONTACT FORM SECTION -->
+    <section id="booking" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Info Text -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-cyan-400 font-bold uppercase tracking-wider text-sm">Reservasi Mudah</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                        Siap Memulai Liburan Impian di Bandung?
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Isi formulir reservasi di samping ini untuk terhubung secara langsung dengan Travel Specialist Bandung kami melalui WhatsApp. Layanan cepat dan responsif!
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-primary/20 text-cyan-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Telepon / WhatsApp Admin</p>
+                                <p class="font-bold text-white">+62 895-3040-1125</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-primary/20 text-cyan-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Email Official</p>
+                                <p class="font-bold text-white">saphiratourandtravel@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-primary/20 text-cyan-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Kantor Pusat</p>
+                                <p class="font-bold text-white">Perumahan Lembah Teratai - Cimahi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form Container -->
+                <div class="lg:col-span-7 bg-white text-slate-800 p-6 sm:p-10 rounded-3xl shadow-2xl">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Formulir Reservasi Wisata Bandung</h3>
+                    <p class="text-slate-500 text-sm mb-6">Pesan via WhatsApp dengan pengisian singkat di bawah ini.</p>
+
+                    <form id="booking-form" onsubmit="submitToWhatsApp(event)" class="space-y-4">
+                        <!-- Nama Lengkap -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Nama Lengkap *</label>
+                            <input type="text" id="form-name" required placeholder="Contoh: Ahmad Subagja" class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+
+                        <!-- No WhatsApp & Destinasi (Grid) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Nomor WhatsApp *</label>
+                                <input type="tel" id="form-phone" required placeholder="0812xxxxxxx" class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Pilihan Paket Wisata *</label>
+                                <select id="form-destination" required class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-slate-700">
+                                    <option value="">-- Pilih Destinasi Bandung --</option>
+                                    <option value="Lembang Open Trip">Lembang Open Trip</option>
+                                    <option value="Lembang Private Trip">Lembang Private Trip</option>
+                                    <option value="Ciwidey Open Trip">Ciwidey Open Trip</option>
+                                    <option value="Ciwidey Private Trip">Ciwidey Private Trip</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Tanggal Keberangkatan & Jumlah Peserta (Grid) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Estimasi Tanggal *</label>
+                                <input type="date" id="form-date" required class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary text-slate-700">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Jumlah Peserta (Orang) *</label>
+                                <input type="number" id="form-passengers" min="1" value="2" required class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+
+                        <!-- Catatan Tambahan -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Catatan Khusus (Opsional)</label>
+                            <textarea id="form-notes" rows="3" placeholder="Contoh: Butuh penjemputan Stasiun Bandung, hotel bintang 4, atau menu resto Sunda..." class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+
+                        <!-- Submit WhatsApp Button -->
+                        <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition-all duration-200 flex items-center justify-center gap-3 text-lg mt-2">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Kirim Reservasi via WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-lg">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <span class="text-lg font-extrabold text-white tracking-tight">SAPHIRA TOUR</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Penyedia jasa tour & travel lokal terpercaya khusus destinasi wisata Bandung, Lembang, dan Ciwidey dengan pelayanan ramah & profesional.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Navigasi</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-primary transition-colors">Beranda</a></li>
+                        <li><a href="#destinations" class="hover:text-primary transition-colors">Paket Tour</a></li>
+                        <li><a href="#why-us" class="hover:text-primary transition-colors">Mengapa Kami</a></li>
+                        <li><a href="#documentation" class="hover:text-primary transition-colors">Dokumentasi</a></li>
+                        <li><a href="#testimonials" class="hover:text-primary transition-colors">Testimoni</a></li>
+                        <li><a href="#booking" class="hover:text-primary transition-colors">Reservasi Online</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Popular Destinations -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Destinasi Populer</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#destinations" onclick="filterCategory('lembang')" class="hover:text-primary transition-colors">Lembang Open Trip</a></li>
+                        <li><a href="#destinations" onclick="filterCategory('lembang')" class="hover:text-primary transition-colors">Lembang Private Trip</a></li>
+                        <li><a href="#destinations" onclick="filterCategory('ciwidey')" class="hover:text-primary transition-colors">Ciwidey Open Trip</a></li>
+                        <li><a href="#destinations" onclick="filterCategory('ciwidey')" class="hover:text-primary transition-colors">Ciwidey Private Trip</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Social Media -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Ikuti Kami</h4>
+                    <p class="text-xs text-slate-400 mb-4">Dapatkan pembaruan promo dan keindahan destinasi di media sosial kami:</p>
+                    <div class="flex gap-3 text-slate-300">
+                        <a href="https://www.instagram.com/saphiratourandtravel?dlrf=c3VudGVlb2NkdTVh" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary hover:text-white flex items-center justify-center transition-all" title="Instagram Saphira Tour"><i class="fa-brands fa-instagram text-lg"></i></a>
+                        <a href="https://www.facebook.com/saphiratour" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary hover:text-white flex items-center justify-center transition-all" title="Facebook Saphira Tour"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+                        <a href="https://www.tiktok.com/@saphiratourandtravel?_r=1&_t=ZS-9BJwwiJeixS" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary hover:text-white flex items-center justify-center transition-all" title="TikTok Saphira Tour"><i class="fa-brands fa-tiktok text-lg"></i></a>
+                        <a href="https://www.youtube.com/@saphiratour" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary hover:text-white flex items-center justify-center transition-all" title="YouTube Saphira Tour"><i class="fa-brands fa-youtube text-lg"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 text-center text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 Saphira Tour and Travel. <span>Hak Cipta Dilindungi Undang-Undang.</span></p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:underline">Syarat & Ketentuan</a>
+                    <a href="#" class="hover:underline">Kebijakan Privasi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/6289530401125?text=Halo%20Saphira%20Tour,%20saya%20tertarik%20untuk%20konsultasi%20paket%20wisata%20Bandung." 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="wa-float-btn fixed bottom-6 right-6 bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-50 hover:bg-emerald-600 transition-all transform hover:scale-110"
+       title="Chat WhatsApp CS Saphira">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Tour Packages Data Array (Lembang & Ciwidey Open/Private Trip ONLY)
+        const tourPackages = [
+            {
+                id: 1,
+                title: "Lembang Open Trip",
+                category: "lembang",
+                type: "opentrip",
+                durationDays: 1,
+                durationText: "1 Hari (12 Jam)",
+                price: "Rp 200.000",
+                image: "12.jpg",
+                features: [
+                    "Tangkuban Perahu", 
+                    "Bukit Strawberry", 
+                    "Farmhouse / Floating Market", 
+                    "Orchid Forest / Dusun Bambu", 
+                    "Tour Guide Sertifikasi BNSP", 
+                    "Transportasi AC & BBM"
+                ],
+                popular: true
+            },
+            {
+                id: 2,
+                title: "Lembang Private Trip",
+                category: "lembang",
+                type: "privatetrip",
+                durationDays: 1,
+                durationText: "1 Hari (12 Jam)",
+                price: "Rp 650.000",
+                image: "12.jpg",
+                features: [
+                    "Private Car (Max 6 Orang)", 
+                    "Free Konsultasi & Pilih Destinasi Lembang", 
+                    "Driver & Guide Pituin Sunda (BNSP)", 
+                    "BBM, Tol & Parkir", 
+                    "Durasi 12 Jam", 
+                    "Antar-Jemput Area Bandung City"
+                ],
+                popular: true
+            },
+            {
+                id: 3,
+                title: "Ciwidey Open Trip",
+                category: "ciwidey",
+                type: "opentrip",
+                durationDays: 1,
+                durationText: "1 Hari (12 Jam)",
+                price: "Rp 250.000",
+                image: "11.jpg",
+                features: [
+                    "Kawah Putih Eksotis", 
+                    "Glamping Lakeside & Pinisi Resto", 
+                    "Kebun Teh Rancabali", 
+                    "Ranca Upas Deer Feeding", 
+                    "Tour Guide Sertifikasi BNSP", 
+                    "Transportasi AC & Dokumentasi"
+                ],
+                popular: true
+            },
+            {
+                id: 4,
+                title: "Ciwidey Private Trip",
+                category: "ciwidey",
+                type: "privatetrip",
+                durationDays: 1,
+                durationText: "1 Hari (12 Jam)",
+                price: "Rp 750.000",
+                image: "11.jpg",
+                features: [
+                    "Private Car (Max 6 Orang)", 
+                    "Tour Guide Sertifikasi BNSP", 
+                    "Transportasi, Driver & BBM", 
+                    "Tol, Parkir & Dokumentasi Ringan", 
+                    "Durasi 12 Jam (Maks 4 Destinasi)", 
+                    "Antar Jemput Area Bandung Kota"
+                ],
+                popular: true
+            }
+        ];
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Render Tour Cards Dynamic Function
+        function renderTours(packages) {
+            const container = document.getElementById('tour-cards-container');
+            const noResults = document.getElementById('no-results');
+            
+            container.innerHTML = '';
+
+            if (packages.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            packages.forEach(pkg => {
+                const perPaxText = pkg.type === 'opentrip' ? '/pax' : '/paket';
+
+                const encodedMsg = encodeURIComponent(`Halo Saphira Tour, saya ingin bertanya & memesan paket wisata Bandung: *${pkg.title}* (${pkg.price}). Mohon info ketersediaannya.`);
+                const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodedMsg}`;
+
+                const cardHTML = `
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col group">
+                        <!-- Image Container -->
+                        <div class="relative overflow-hidden h-56">
+                            <img src="${pkg.image}" alt="${pkg.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=800&q=80';">
+                            <div class="absolute top-4 left-4 bg-slate-900/70 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full">
+                                <i class="fa-regular fa-clock mr-1"></i>${pkg.durationText}
+                            </div>
+                            ${pkg.popular ? `<div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full shadow">BEST SELLER</div>` : ''}
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">${pkg.title}</h3>
+                                <div class="mt-2 mb-4 flex items-baseline gap-1">
+                                    <span class="text-xs text-slate-500">Mulai</span>
+                                    <span class="text-2xl font-extrabold text-primary">${pkg.price}</span>
+                                    <span class="text-xs text-slate-500">${perPaxText}</span>
+                                </div>
+
+                                <!-- Features list -->
+                                <ul class="space-y-2 mb-6">
+                                    ${pkg.features.map(f => `
+                                        <li class="text-xs text-slate-600 flex items-center gap-2">
+                                            <i class="fa-solid fa-circle-check text-emerald-500 shrink-0"></i>
+                                            <span>${f}</span>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+
+                            <!-- Card Action Buttons -->
+                            <div class="pt-4 border-t border-slate-100 flex items-center gap-2">
+                                <a href="${waUrl}" target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 px-4 rounded-xl shadow transition-colors flex items-center justify-center gap-2 text-sm">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                    <span>Pesan via WA</span>
+                                </a>
+                                <button onclick="selectPackageForForm('${pkg.title}')" class="bg-slate-100 hover:bg-primary hover:text-white text-slate-700 p-2.5 rounded-xl transition-colors" title="Isi Form Reservasi">
+                                    <i class="fa-solid fa-calendar-plus text-base"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', cardHTML);
+            });
+        }
+
+        // Filter Functionality
+        function filterPackages() {
+            const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
+            const categoryVal = document.getElementById('category-filter').value;
+            const durationVal = document.getElementById('duration-filter').value;
+
+            const filtered = tourPackages.filter(pkg => {
+                // Search Keyword match
+                const matchSearch = pkg.title.toLowerCase().includes(searchVal);
+                
+                // Category match (lembang, ciwidey, opentrip, privatetrip)
+                let matchCategory = true;
+                if (categoryVal === 'lembang') {
+                    matchCategory = pkg.category === 'lembang';
+                } else if (categoryVal === 'ciwidey') {
+                    matchCategory = pkg.category === 'ciwidey';
+                } else if (categoryVal === 'opentrip') {
+                    matchCategory = pkg.type === 'opentrip';
+                } else if (categoryVal === 'privatetrip') {
+                    matchCategory = pkg.type === 'privatetrip';
+                }
+
+                // Duration match
+                let matchDuration = true;
+                if (durationVal === 'short') {
+                    matchDuration = pkg.durationDays === 1;
+                } else if (durationVal === 'medium') {
+                    matchDuration = pkg.durationDays === 2;
+                } else if (durationVal === 'long') {
+                    matchDuration = pkg.durationDays >= 3;
+                }
+
+                return matchSearch && matchCategory && matchDuration;
+            });
+
+            renderTours(filtered);
+        }
+
+        // Quick Category Filter Helper
+        function filterCategory(cat) {
+            document.getElementById('category-filter').value = cat;
+            filterPackages();
+        }
+
+        // Reset Filter Function
+        function resetFilters() {
+            document.getElementById('search-input').value = '';
+            document.getElementById('category-filter').value = 'all';
+            document.getElementById('duration-filter').value = 'all';
+            renderTours(tourPackages);
+        }
+
+        // Quick select package to form
+        function selectPackageForForm(packageName) {
+            const selectEl = document.getElementById('form-destination');
+            selectEl.value = packageName;
+            // Scroll to form smoothly
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // WhatsApp Form Submit Handler
+        function submitToWhatsApp(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('form-name').value.trim();
+            const phone = document.getElementById('form-phone').value.trim();
+            const destination = document.getElementById('form-destination').value;
+            const date = document.getElementById('form-date').value;
+            const passengers = document.getElementById('form-passengers').value;
+            const notes = document.getElementById('form-notes').value.trim();
+
+            // Format WhatsApp Text Message
+            let message = `*RESERVASI WISATA BANDUNG - SAPHIRA TOUR*\n`;
+            message += `----------------------------------------\n`;
+            message += `👤 *Nama Lengkap:* ${name}\n`;
+            message += `📞 *No WhatsApp:* ${phone}\n`;
+            message += `🏞️ *Paket Bandung:* ${destination}\n`;
+            message += `📅 *Tanggal Keberangkatan:* ${date}\n`;
+            message += `👥 *Jumlah Peserta:* ${passengers} Orang\n`;
+            if (notes) {
+                message += `📝 *Catatan Khusus:* ${notes}\n`;
+            }
+            message += `----------------------------------------\n`;
+            message += `Mohon informasi ketersediaan slot dan proses pembayarannya. Terima kasih!`;
+
+            // Open WhatsApp link
+            const waRedirectUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(waRedirectUrl, '_blank');
+        }
+
+        // Event Listeners for Filters
+        document.getElementById('search-btn').addEventListener('click', filterPackages);
+        document.getElementById('search-input').addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') filterPackages();
+        });
+        document.getElementById('category-filter').addEventListener('change', filterPackages);
+        document.getElementById('duration-filter').addEventListener('change', filterPackages);
+
+        // Initial render on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderTours(tourPackages);
+        });
+    </script>
+</body>
+</html>
